@@ -1,0 +1,311 @@
+
+.veg_main--footer {
+  background: url('../../images/vegetable/veg-footer-bg.svg') no-repeat center;
+  background-size: cover;
+  width: 100%;
+  display: block;
+}
+
+/* -- top-footer -- */
+
+.veg_top--footer {
+  padding: 12.1875rem 0rem 0.3125rem
+}
+.veg_top--footer .container {
+  position: relative;
+}
+.footer_food--wrapper {
+  position: absolute;
+  width: 150px;
+  top: -11rem;
+  right: 0rem;
+}
+.veg_footer--cols {
+  margin-bottom: 1.875rem;
+}
+.footer_list--title {
+  font-family: var(--montserrat);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 130.19%;
+  text-transform: uppercase;
+  color: var(--white);
+  padding-bottom: 0.8125rem;
+}
+.veg_footer--wrapper p,
+.veg_footer_list--wrapper .veg_items a {
+  font-family: var(--montserrat);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+  color: #A3A3A3;
+}
+.veg_footer_list--wrapper .veg_items a {
+  transition: all 0.5s ease;
+}
+.veg_footer_list--wrapper .veg_items a:hover {
+  color: var(--veg-primary-color);
+  text-decoration: none;
+}
+.veg_footer_list--wrapper .veg_items {
+  padding: 0.4875rem 0rem;
+}
+.veg_footer_list--wrapper .veg_items:first-child {
+  padding-top: 0px;
+}
+.veg_footer_list--wrapper .veg_items:last-child {
+  padding-bottom: 0px;
+}
+.form_newsletter--wrapper {
+  max-width: 323px;
+  width: 100%;
+  margin-top: 1.875rem;
+}
+.form_newsletter--wrapper .form-control {
+  font-family: var(--montserrat);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 105%;
+  color: var(--black);
+  height: auto;
+  background: var(--white);
+  outline: none;
+  box-shadow: none;
+  border-radius: 0px;
+  border: 1px solid var(--white);
+  padding: 18px 23px 19px;
+}
+.form_newsletter--wrapper .form-control:focus {
+  border-color: var(--veg-primary-color);
+}
+.form_newsletter--wrapper .form-control::placeholder {
+  font-family: var(--montserrat);
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 105%;
+  color: rgba(0, 0, 0, 0.3);
+}
+.form_newsletter--wrapper .input-group-text{
+  font-family: var(--montserrat);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 105%;
+  color: var(--white);
+  border-radius: 0px;
+  background: var(--veg_btn--hover);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 18px 21px 19px;
+  display: block;
+  transition: all 0.5s ease-in-out;
+}
+.form_newsletter--wrapper .input-group-text:hover {
+  background: var(--veg-btn);
+}
+.footer_social--media {
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+}
+.foo_social--icons {
+  display: block;
+  margin-right: 7px;
+  transition: all 0.5s ease-in-out;
+}
+.foo_social--icons:hover {
+  transform: scale(1.2);
+}
+@media ( min-width: 768px ) {
+  .footer_food--wrapper {
+    width: 200px;
+    top: -15rem;
+  }
+  .footer_list--title  {
+    font-size: 19px;
+    line-height: 146.19%;
+  }
+}
+@media ( min-width: 992px ) {
+  .footer_food--wrapper {
+    right: 15rem;
+  }
+  .veg_footer--cols {
+    margin-bottom: 0rem;
+  }
+}
+@media ( min-width: 1200px ) {
+  .veg_footer--cols {
+    position: relative;
+  }
+  .veg_footer--cols::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 260px;
+    background: #373737;
+    top: 7px;
+    left: -2.75rem;
+  }
+  .veg_footer--cols:first-child::before {
+    display: none;
+  }
+  .veg_footer--cols:first-child p {
+    padding-right: 6rem;
+  }
+  .veg_footer--cols:last-child p {
+    padding-right: 2rem;
+  }
+  .footer_food--wrapper {
+    width: auto;
+    top: -21rem;
+    right: 15rem;
+  }
+}
+@media ( min-width: 1680px ) {
+  .footer_food--wrapper {
+    right: 19rem;
+  }
+}
+@media ( min-width: 1880px ) {
+  .footer_food--wrapper {
+    right: 23rem;
+  }
+}
+/* -- bottom-footer -- */
+
+.veg_bottom--footer {
+  position: relative;
+}
+.veg_bottom--footer .container{
+  border-top: 1px solid #373737;
+}
+.veg_bottom--footer .copyright {
+  font-family: var(--montserrat);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 105%;
+  color: var(--white);
+  text-align: center;
+  display: block;
+  padding:0.75rem 0rem 0.375rem;
+}
+.footer_fruit--wrapper {
+  position: absolute;
+  left: 0rem;
+  bottom: -0.5rem;
+}
+.footer_fruit--wrapper img {
+  width: 200px;
+}
+@media ( min-width: 768px ) {
+  .footer_fruit--wrapper {
+    bottom: -6.5rem;
+  }
+  .footer_fruit--wrapper img {
+    width: auto;
+  }
+}
+/* -- container-size -- */
+
+@media ( min-width: 1200px ) {
+  .veg_top--footer .container,
+  .veg_bottom--footer .container {
+    max-width: 1303px;
+  }
+}
+@media ( min-width: 1680px ) {
+  .veg_top--footer .container,
+  .veg_bottom--footer .container  {
+    max-width: 1603px;
+  }
+}
+@media ( min-width: 1880px ) {
+  .veg_top--footer .container,
+  .veg_bottom--footer .container  {
+    max-width: 1803px;
+  }
+}
+
+/* ----==== vegetable search ====---- */
+
+.vegetable-search-modal .vegetable_group .form-control {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  color: var(--black);
+  height: auto;
+  padding: 1.0625rem 1.375rem;
+  border-radius: 0px;
+  box-shadow: none;
+  outline: none;
+  font-family: var(--montserrat);
+}
+.vegetable-search-modal .close {
+  position: absolute;
+  top: -10px;
+  right: -7px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  color: var(--black);
+  transition: all ease 0.4s;
+}
+
+.vegetable-search-modal .close:hover {
+  background: var(--veg-primary-color);
+}
+
+.vegetable-search-modal .close:not(:disabled):not(.disabled):focus, 
+.vegetable-search-modal .close:not(:disabled):not(.disabled):hover {
+  opacity: 1;
+}
+
+.vegetable-search-modal .close:active,
+.vegetable-search-modal .close:focus {
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .vegetable-search-modal .close {
+    top: -15px;
+    right: -14px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.vegetable-search-modal .submit-button {
+  font-family: var(--montserrat);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 105%;
+  color: var(--white);
+  border-radius: 0px;
+  background: var(--veg_btn--hover);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 18px 21px 19px;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+}
+
+.vegetable-search-modal .submit-button:hover {
+  background: var(--veg-btn);
+  text-decoration: underline;
+}

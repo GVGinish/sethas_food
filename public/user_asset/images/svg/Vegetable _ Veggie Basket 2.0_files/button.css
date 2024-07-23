@@ -1,0 +1,308 @@
+.btn {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 177.1%;
+  letter-spacing: 0.3em;
+  padding: 1rem;
+  border-radius: 25.5px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.5s ease-in-out;
+}
+.btn_regular {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  transition: all 0.5s ease-in-out;
+}
+/* -- green-btn -- */
+.green_btn {
+  color: var(--white);
+  background: var(--light-green);
+  border: 1px solid var(--light-green);
+  filter: drop-shadow(0px 14px 34px rgba(3, 173, 84, 0.32));
+}
+.green_btn:hover {
+  color: var(--light-green);
+  background: var(--white);
+}
+/* -- social-btn -- */
+.social_btn {
+  display: flex;
+  align-items: center;
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 110%;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 9px 5px;
+  transition: all 0.5s ease-in-out;
+}
+.social_btn .text_wrapper {
+  padding-left: 8px;
+}
+@media ( min-width: 480px ) {
+  .social_btn {
+    font-size: 14px;
+    padding: 13px 12px;
+  }
+}
+/* -- black-btn -- */
+.black_btn {
+  background: var(--black);
+  border: 1px solid var(--black);
+  border-radius: 130px;
+  color: var(--white);
+}
+.black_btn:hover {
+  color: var(--black);
+  background: var(--white);
+}
+/* -- form-post-comment-btn -- */
+
+.post_comment--btn {
+  font-size: 12px;
+  line-height: 124%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: #EB1D1D;
+  border: 1px solid #EB1D1D;
+  border-radius: 27px;
+  max-width: 200px;
+  width: 100%;
+}
+.post_comment--btn:hover {
+  border-color: var(--black);
+  background: transparent;
+  color: var(--black);
+}
+
+/* -- blog-read-more -- */
+
+.btn_read {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 146.1%;
+  text-align: center;
+  letter-spacing: 0.3em;
+  border-radius: 21px;
+  border-width: 3px;
+  border-style: solid;
+  display: block;
+  max-width: 138px;
+  width: 100%;
+  padding: 0.3125rem 0rem 0.1875rem;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+.read_more_yellow--btn {
+  color: var(--black);
+  background: #E4C02E;
+  border-color: #E4C02E;
+}
+.read_more_yellow--btn:hover {
+  color: var(--white);
+  background: transparent;
+  border-color: var(--white);
+}
+.read_more_trans--btn {
+  color: var(--white);
+  background: transparent;
+  border-color: var(--white);
+}
+.read_more_trans--btn:hover {
+  color: var(--white);
+  background: var(--black);
+  border-color: var(--black);
+}
+@media ( min-width: 480px ) {
+  .btn_read {
+    padding: 0.59375rem 0.1875rem;
+  }
+}
+
+/* ---- add-to-cart ---- */
+
+.add_to_cart--btn {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 177.1%;
+  text-align: center;
+  letter-spacing: 0.3em;
+  color: var(--white);
+  display: block;
+  background: var(--light-green);
+  border-radius: 25.5px;
+  transition: all 0.5s ease-in-out;
+  max-width: 143px;
+  width: 100%;
+  padding: 0.6rem;
+  text-decoration: none;
+}
+.add_to_cart--btn:hover {
+  color: var(--white);
+  background: var(--green-btn-hover);
+}
+@media ( min-width: 576px ) {
+  .add_to_cart--btn {
+    font-size: 11px;
+    max-width: 191px;
+    padding: 1rem;
+  }
+}
+
+/* ---- buy-now ---- */
+
+.buy_now--btn {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 183.1%;
+  color: #F5FAF6;
+  background: var(--light-green);
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 22.5px;
+  padding: 10px;
+  width: 123px;
+  transition: all 0.5s ease;
+}
+.buy_now--btn:hover {
+  color: var(--white);
+  background: var(--green-btn-hover);
+}
+
+/* -- home-btn -- */
+
+.home_btn {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 93.1%;
+  letter-spacing: 0.17em;
+  color: var(--white);
+  background: var(--light-green);
+  padding: 12px;
+  text-align: center;
+  border-radius: 100px;
+  display: block;
+  max-width: 158px;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+.home_btn:hover {
+  color: var(--white);
+  background: var(--green-btn-hover);
+  text-decoration: none;
+}
+@media ( min-width: 768px ) {
+  .home_btn {
+    font-size: 14px;
+    padding: 19px;
+  }
+}
+
+/* -- dairy-btn -- */
+
+.dairy_read--btn {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+  text-decoration: none;
+  max-width: 200px;
+  width: 100%;
+  padding: 0.9rem;
+  transition: all 0.5s ease;
+}
+.dairy_read_transparent--white {
+  border-color: var(--white);
+  color: var(--white);
+}
+.dairy_read_transparent--black {
+  border-color: var(--black);
+  color: var(--black);
+}
+.dairy_read--yellow {
+  background: var(--dairy-secondary-color);
+  border-color: var(--dairy-secondary-color);
+  color: var(--black);
+}
+.dairy_read_transparent--white:hover {
+  border-color: var(--dairy-secondary-color);
+  color: var(--dairy-secondary-color);
+}
+.dairy_read_transparent--black:hover {
+  color: var(--black);
+  background: var(--dairy-secondary-color);
+  border-color: var(--dairy-secondary-color);
+}
+.dairy_read--yellow:hover {
+  color: var(--black);
+  border-color: var(--black);
+  background: transparent;
+}
+@media ( min-width: 768px ) {
+  .dairy_read--btn {
+    font-size: 20px;
+    line-height: 23px;
+    max-width: 251px;
+    padding: 1.0625rem;
+  }
+}
+
+/* -- veg-btn -- */
+
+.veg_btn {
+  font-family: var(--montserrat);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--veg-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  max-width: 183px;
+  width: 100%;
+  padding: 0.75rem;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  z-index: 999;
+}
+.veg_btn:hover {
+  color: var(--black);
+  background: var(--veg-primary-color);
+  text-decoration: none;
+}
+@media ( min-width: 576px ) {
+  .veg_btn {
+    max-width: 193px;
+    padding: 1.1875rem;
+  }
+}

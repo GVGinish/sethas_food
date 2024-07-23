@@ -1,0 +1,25 @@
+/* ----- image-animation1 ------ */
+.animate_img--wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+.animate_img--wrapper a img {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.animate_img--wrapper a:hover img {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+/* ----- image-animation2 ------ */
+.image_animation {
+  overflow: hidden;
+  width: 100%;
+}
+.image_animation a img {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.image_animation a:hover img {
+  transform: scale(1.1);
+  opacity: 0.9;
+}

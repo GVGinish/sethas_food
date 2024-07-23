@@ -1,0 +1,320 @@
+
+/* == login == */
+
+.my_account--wrapper {
+ 
+  background: cover;
+  width: 100%;
+  display: block;
+  padding: 3.125rem 0rem;
+}
+.my_account--wrapper .account_container--wrapper {
+  max-width: 968px;
+  width: 100%;
+  margin: 0 auto;
+}
+.account_img--wrapper img {
+  width: 100%;
+}
+.register-sec{text-align: center;
+display: block;}
+.account_details--wrapper {
+  background: url('../../images/my-account/my-acc-bg.svg') no-repeat center;
+  background-size: cover;
+  width: 87%;
+  display: block;
+  padding: 37px 20px 33px;
+
+}
+.account_details--wrapper .title {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 31px;
+  line-height: 124%;
+  color: var(--white);
+  text-align: center;
+  padding-bottom: 10px;
+}
+.account_img--wrapper a:hover img {
+  opacity: 1!important;
+}
+.form_account--group {
+  margin-bottom: 23px;
+}
+.form_account--group .form_input {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 124%;
+  color: var(--white);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #465E7C;
+  width: 100%;
+  padding: 15px;
+  box-shadow: none;
+}
+.form_account--group .form_input::placeholder {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 124%;
+  color: #7E96B5;
+  text-align: center;
+}
+.form_account--group .form_input:focus {
+  outline: none;
+}
+.account_btn--wrapper {
+  padding-top: 20px;
+}
+.account_btn--wrapper .account_btn {
+  display: block;
+  border-radius: 39.5px;
+  padding: 11px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+.form_security--group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 23px;
+}
+.form_security--group .forgot_password {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 124%;
+  color: #92A3B8;
+}
+/* checkbox */
+.checkbox_wrapper {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 128%;
+  color: var(--white);
+  display: block;
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 0rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox_wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 13px;
+  width: 13px;
+  background-color: transparent;
+  border: 1px solid #6E7D90;
+  border-radius: 2px;
+}
+
+.checkbox_wrapper:hover input ~ .checkmark {
+  background-color: var(--white);
+}
+
+.checkbox_wrapper input:checked ~ .checkmark {
+  background-color: var(--light-green);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox_wrapper input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox_wrapper .checkmark:after {
+  left: 4px;
+  top: 1px;
+  width: 3px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 1px 1px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* checkbox-ends */
+.or_wrapper {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 124%;
+  text-align: center;
+  color: var(--white);
+  margin: 12px 0px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.or_wrapper::before {
+  content: '';
+  position: absolute;
+  max-width: 100%;
+  width: 100%;
+  height: 1px;
+  background: #465E7C;
+  top: 50%;
+  z-index: 0;
+}
+.or_wrapper::before {
+  left: 0rem;
+  right: 0rem;
+}
+.or_wrapper span {
+  position: relative;
+  z-index: 1;
+  width: 43px;
+  background: #2a404d;
+  display: block;
+}
+.social_media_btn--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5px;
+}
+.social_media--btn1 {
+  background: var(--fb-btn);
+  margin-right: 5px;
+}
+.social_media--btn1:hover {
+  color: var(--white);
+  background: var(--fb-btn-hover);
+}
+.social_media--btn2 {
+  background:var(--google-btn);
+  margin-left: 5px;
+}
+.social_media--btn2:hover {
+  color: var(--white);
+  background:var(--google-btn-hover);
+}
+.register_now {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 124%;
+  text-align: center;
+  color: var(--white);
+  display: block;
+  padding-top: 27px;
+}
+.register_now .register {
+  color: var(--light-green);
+}
+@media ( min-width: 576px ) {
+  .my_account--wrapper {
+    padding: 6.25rem 0rem;
+  }
+  .account_details--wrapper .title {
+    font-size: 41px;
+  }
+  .social_media--btn1 {
+    margin-right: 10px;
+  }
+  .social_media--btn2 {
+    margin-left: 10px;
+  }
+}
+@media ( min-width: 768px ) {
+  .social_media--btn1 {
+    margin-right: 21px;
+  }
+  .social_media--btn2 {
+    margin-left: 21px;
+  }
+}
+@media ( min-width: 992px ) {
+  .my_account--wrapper {
+    padding: 2.5rem 0rem;
+  }
+  .account_container--wrapper .account_cols:nth-child(1) {
+    padding-right: 0px;
+  }
+  .account_container--wrapper .account_cols:nth-child(2) {
+    padding-left: 0px;
+  }
+  .account_img--wrapper,
+  .account_img--wrapper img {
+    height: 91.01%;
+  }
+}
+@media ( min-width: 1680px ) {
+  .account_details--wrapper {
+    padding-left: 46px;
+    padding-right: 46px;
+  }
+  .account_btn--wrapper .account_btn {
+    padding: 19px;
+  }
+}
+.account_cols{max-width: 50%;}
+
+/* == registration == */
+
+.account_register--wrapper .form_account--group {
+  margin-bottom: 9px;
+}
+.account_register--wrapper .password_sent {
+  display: block;
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 124%;
+  color: var(--white);
+  text-align: center;
+}
+.account_register--wrapper .account_btn--wrapper {
+  padding-top: 34px;
+}
+.account_register--wrapper .or_wrapper {
+  margin: 29px 0px 17px;
+}
+.account_register--wrapper .or_wrapper span {
+  background: #2a444d;
+}
+.account_register--wrapper .register_now {
+  padding-top: 62px;
+}
+
+@media ( min-width: 992px ) {
+  .account_register--wrapper {
+    padding-top: 69px;
+    height: 100%;
+  }
+}
+@media ( min-width: 1441px ) {
+  .account_register--wrapper {
+    padding-top: 69px;
+  }
+}

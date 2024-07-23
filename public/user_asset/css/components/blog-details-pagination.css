@@ -1,0 +1,101 @@
+.blogdetails_pagination--wrapper {
+  border: 1px solid #D9DEDE;
+  border-left: none;
+  border-right: none;
+  padding: 1.625rem 0rem;
+}
+.blogdetails_pagination--wrapper .pagination {
+  align-items: center;
+  justify-content: space-between;
+}
+.blogdetails_pagination--wrapper .page-item {
+ padding: 0;
+}
+.blogdetails_pagination--wrapper .page-link {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+.blogdetails_pagination--wrapper .page-link:focus {
+  box-shadow: none;
+}
+.blogdetails_pagination--wrapper .page-link .blog_link--info {
+  transition: all 0.5s ease;
+}
+.blogdetails_pagination--wrapper .page-link:hover .blog_link--info {
+  color: var(--light-green);
+}
+.previous .blog_link {
+  background: var(--black);
+}
+.previous .blog_link--info {
+  color: var(--black);
+}
+.next .blog_link {
+  background: #FD3B00;
+}
+.next .blog_link--info {
+  color: #FD3B00;
+  text-align: right;
+}
+.blog_pagination--text .blog_link {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 124%;
+  color: var(--white);
+  display: block;
+  text-align: center;
+  padding: 2px 6px;
+  max-width: 63px;
+  margin: 21px 0px 7px;
+}
+.blog_pagination--text .blog_link--info {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 124%;
+}
+.next .blog_pagination--image {
+  text-align: right;
+}
+.next .blog_pagination--text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.previous .blog_pagination--box {
+  margin-right: 5px;
+}
+.next .blog_pagination--box {
+  margin-left: 5px;
+}
+@media ( min-width: 420px ) {
+  .blogdetails_pagination--wrapper {
+    padding: 2.25rem 0rem;
+  }
+  .blog_pagination--text .blog_link--info {
+    font-size: 20px;
+  }
+}
+@media ( min-width: 1200px ) {
+  .blog_pagination--box {
+    display: flex;
+    align-items: center;
+  }
+  .next .blog_pagination--box {
+    flex-direction: row-reverse;
+  }
+  .previous .blog_pagination--text {
+    padding-left: 20px;
+  }
+  .next .blog_pagination--text {
+    padding-right: 20px;
+  }
+  .blog_pagination--box .blog_link--info {
+    display: block;
+    width: 280px;
+  }
+}

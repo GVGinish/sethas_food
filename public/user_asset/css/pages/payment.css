@@ -1,0 +1,339 @@
+/* ========== payment-method =========== */
+.payment_main--wrapper {
+  overflow: hidden;
+}
+.payment_method--wrapper {
+  padding: 3.125rem 0rem 5rem;
+}
+.payment_method--wrapper .payment_title {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 143.1%;
+  color: var(--black);
+  text-align: center;
+  padding-bottom: 2.5rem;
+}
+.payment_method--wrapper .payment_col {
+  margin-bottom: 20px;
+}
+.payment_method--wrapper .payment_method {
+  background-size: cover!important;
+  display: block;
+  width: 100%;
+}
+.payment_col:nth-child(1) .payment_method {
+  background: url('../../images/payment/payment-credit.png') no-repeat center;
+}
+.payment_col:nth-child(2) .payment_method {
+  background: url('../../images/payment/payment-paypal.png') no-repeat center;
+}
+.payment_col:nth-child(3) .payment_method {
+  background: url('../../images/payment/payment-delivery.png') no-repeat center;
+}
+.payment_method {
+  position: relative;
+  text-align: center;
+  border-radius: 12px;
+  padding: 50px 0px 27px;
+}
+.payment_method > img {
+  width: 80px;
+}
+.paymeth_method--title {
+  font-family: var(--robot);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 177.1%;
+  letter-spacing: 0.4em;
+  color: var(--white);
+  text-transform: uppercase;
+  padding-top: 18px;
+}
+.checkmark {
+  width: 32px;
+  height: 32px;
+  background: var(--light-green);
+  box-shadow: 0px 4px 36px var(--light-green);
+  border-radius: 50%;
+  position: absolute;
+  top: -0.8rem;
+  right: -0.8rem;
+}
+.checkmark img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media ( min-width: 576px ) {
+  .payment_method--wrapper .payment_title {
+    font-size: 32px;
+    line-height: 177.1%;
+  }
+}
+@media ( min-width: 768px ) {
+  .payment_method--wrapper {
+    padding: 4.625rem 0rem 6.8125rem;
+  }
+  .payment_method--wrapper .payment_col {
+    margin-bottom: 0px;
+  }
+  .payment_method--wrapper .payment_title {
+    padding-bottom: 5.375rem;
+  }
+}
+@media ( min-width: 992px ) {
+  .payment_method {
+    padding-top: 83px;
+  }
+  .payment_method > img {
+    width: auto;
+  }
+  .checkmark {
+    width: 42px;
+    height: 42px;
+  }
+  .paymeth_method--title {
+    font-size: 11px;
+    padding-top: 38px;
+  }
+}
+/* ========== payment-method-ends =========== */
+
+/* ========== payment-form =========== */
+.payment_form_main--wrapper {
+  padding-bottom: 6.8125rem;
+}
+.payment_form_main--wrapper .left_col {
+  position: relative;
+}
+.payment_form_main--wrapper .payment_user--image {
+  position: relative;
+  width: 779px;
+  z-index: -1;
+}
+.payment_user--image img {
+  position: absolute;
+  top: 0rem;
+  left: -16rem;
+  opacity: 0.3;
+}
+/* form-details */
+.form_details--wrapper .form_title {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 177.1%;
+  color: var(--black);
+  padding-bottom: 11px;
+}
+.payment_form--wrapper .form_col {
+  margin-bottom: 20px;
+}
+.form_field {
+  position:relative;
+  margin-bottom: 15px;
+} 
+.form_details--wrapper {
+  overflow: hidden;
+}
+.form_field--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form_field--wrapper .form_field {
+  width: 100%;
+}
+.form_field--wrapper .form_field:nth-child(1) {
+  margin-right: 10px;
+}
+.form_field--wrapper .form_field:nth-child(2) {
+  margin-left: 10px;
+}
+.form-label {
+  overflow: hidden;
+}
+.form-animate-fields .form-field {
+  position: relative;
+  padding-top: 24px;
+  margin-bottom: 24px;
+}
+.form-animate-fields .form-input {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 177.1%;
+  color: var(--white);
+  position: relative;
+  z-index: 100;
+  display: block;
+  background-color: transparent;
+  width: 100%;
+  padding: 11px;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+}
+.form-animate-fields .form-input:focus {
+  outline: none;
+}
+.form-animate-fields .form-label {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  padding: 11px 0px;
+}
+.form-animate-fields .form-label:before,
+.form-animate-fields .form-label:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  left: 0;
+}
+.form-animate-fields .form-label:before {
+  top: 0;
+  background-color: var(--light-green);
+  height: 100%;
+  -webkit-transform: translate3d(-101%, 0, 0);
+          transform: translate3d(-101%, 0, 0);
+  -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: -webkit-transform 0.35s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.7, 0, 0.3, 1), -webkit-transform 0.35s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.form-animate-fields .form-input.is-filled + .form-label:before {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.form-animate-fields .form-label:after {
+  bottom: 0;
+  height: 1px;
+  background-color: #DADADA;
+  -webkit-transition: opacity 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: opacity 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.form-animate-fields .form-input.is-filled + .form-label:after {
+  opacity: 0;
+}
+.form-animate-fields .form-label-content {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 177.1%;
+  color: var(--black);
+  position: relative;
+  display: block;
+  width: 100%;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: color 0.25s 0.25s cubic-bezier(0.7, 0, 0.3, 1), -webkit-transform 0.25s 0.05s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: color 0.25s 0.25s cubic-bezier(0.7, 0, 0.3, 1), -webkit-transform 0.25s 0.05s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: transform 0.25s 0.05s cubic-bezier(0.7, 0, 0.3, 1), color 0.25s 0.25s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: transform 0.25s 0.05s cubic-bezier(0.7, 0, 0.3, 1), color 0.25s 0.25s cubic-bezier(0.7, 0, 0.3, 1), -webkit-transform 0.25s 0.05s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.form-animate-fields .form-input.is-filled + .form-label .form-label-content {
+  color: var(--light-green);
+  -webkit-transform: translate3d(-8px, -34px, 0);
+          transform: translate3d(-8px, -34px, 0);
+}
+/* form-btn */
+.form_btn--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form_btn--wrapper .continue_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+.form_btn--wrapper .continue_wrapper:hover {
+  background: #2C2D31;
+  border-radius: 24px;
+  text-decoration: none;
+}
+.form_btn--wrapper .continue_wrapper:hover .text_field {
+  color: var(--white);
+}
+.continue_wrapper .arrow-left {
+  width: 33px;
+  height: 33px;
+  background: #2C2D31;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+}
+.continue_wrapper .arrow-left > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.continue_wrapper .text_field {
+  font-family: var(--roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 124%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  padding-left: 10px;
+  padding-right: 24px;
+}
+.form_btn--wrapper .green_btn {
+  font-size: 12px;
+  line-height: 124%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  max-width: 135px;
+  width: 100%;
+}
+@media ( min-width: 576px ) {
+  .form_btn--wrapper .green_btn {
+    max-width: 170px;
+  }
+}
+@media ( min-width: 768px ) {
+  .payment_form--wrapper .form_col {
+    margin-bottom: 0px;
+  }
+  .form_btn--wrapper {
+    padding-top: 72px;
+  }
+}
+@media ( min-width: 992px ) {
+  .form_details--wrapper .form_title {
+    font-size: 32px;
+  }
+  .form_field--wrapper .form_field:nth-child(1) {
+    margin-right: 17px;
+  }
+  .form_field--wrapper .form_field:nth-child(2) {
+    margin-left: 17px;
+  }
+  .continue_wrapper .arrow-left {
+    width: 43px;
+    height: 43px;
+  }
+  .continue_wrapper .text_field  {
+    font-size: 12px;
+  }
+  .form_btn--wrapper .green_btn {
+    max-width: 203px;
+  }
+  .payment_user--image img {
+    opacity: 1;
+  }
+}
+/* form-details-ends */
+/* ========== payment-form-ends =========== */
