@@ -24,7 +24,7 @@ class Controller extends BaseController
     
 
 public function login_page(){
-
+  
     return view('admin/login_page');
   }
 
@@ -68,7 +68,8 @@ public function logout(Request $request)
 
 public function dashboard(){
 
-    return view('admin.dashboard');
+    $page = "dashboard";
+    return view('admin.dashboard',compact('page'));
 }
 
 

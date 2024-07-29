@@ -65,7 +65,6 @@
                                  <li><a class="nav-link" href="{{ route('Profile') }}"><img src="{{ asset('user_asset/images/svg/profile.png') }}"> Profile</a></li>
                                  <li><a class="nav-link" href="{{ route('Order') }}"><img src="{{ asset('user_asset/images/svg/12121.png') }}"> My Order</a></li>
                               @endauth
-
                            </ul>
                         </li>
                      </ul>
@@ -74,12 +73,14 @@
                      <!-- <a href="javascript:void(0)" class="search_link" data-toggle="modal" data-target="#vegetableSearchModal">
                      <span class="veggie-search icon"></span>
                      </a> -->
+                     @auth
                      <a href="{{ route('Cart')}}" class="cart_link">
                      <span class="veggie-cart icon"></span>
                      <span class="cart_count">
-                     <span>01</span>
+                     <span>{{ App\models\CartModel::where('user_id',Auth::user()->user_id)->where('status','New')->count() }}</span>
                      </span>
                      </a>
+                     @endauth
                   </div>
                </div>
             </nav>

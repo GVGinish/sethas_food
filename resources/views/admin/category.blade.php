@@ -1,7 +1,6 @@
 
 @extends('admin.layout')
 @section('link')
-<link rel="shortcut icon" href="{{ asset('admin_asset/images/favicon.ico') }}">
 <!-- Layout config Js -->
 <script src="{{ asset('admin_asset/js/layout.js') }}"></script>
 <!-- Bootstrap Css -->

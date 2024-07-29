@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\ProductModel;
 use App\Models\CategoryModel;
 use App\Models\ImageModel;
+use App\Models\User;
+use App\Models\AddressModel;
+
 
 use Illuminate\Support\Facades\Validator;
 
@@ -73,10 +76,7 @@ class WebController extends Controller
         return view('website.empty_cart');
     }
 
-    public function Checkout(){
 
-        return view('website.Checkout');
-    }
 
     public function register(){
 
@@ -123,14 +123,13 @@ class WebController extends Controller
     //     return view('website.login');
     // }
 
-    public function Order(){
-
-        return view('website.Order');
-    }
+  
 
     public function Profile(){
 
-        return view('website.Profile');
+        $profile = User::where('user_id',Auth::user()->user_id)->first();
+        $address = AddressModel::where('user_id',Auth::user()->user_id)->where('status','Active')->first();
+        return view('website.Profile',compact('profile','address'));
     }
 
     public function product_listing_list($id = null)

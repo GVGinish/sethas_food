@@ -1,6 +1,5 @@
 @extends('admin.layout')
 @section('link')
-<link rel="shortcut icon" href="{{ asset('admin_asset/images/favicon.ico') }}">
 <!-- Layout config Js -->
 <script src="{{ asset('admin_asset/js/layout.js') }}"></script>
 <!-- Bootstrap Css -->
@@ -100,9 +99,12 @@
                               @error('retail')<span class="text-danger">{{ $message }}</span>@enderror
                            </div>
                            <div class="col-md-6">
-                              <label class="form-label">Quantity</label>
-                              <input type="text" class="form-control" name="quantity" value="{{ $edit->quantity }}">
-                              @error('quantity')<span class="text-danger">{{ $message }}</span>@enderror
+                              <label class="form-label">Stock</label>
+                                 <select class="form-control" name="stock">
+                                    <option value="Instock" {{ ($edit->stock == 'Instock') ? 'selected' : '' }}>Instock</option>
+                                    <option value="Out of stock" {{ ($edit->stock == 'Out of stock') ? 'selected' : '' }}>Out of stock</option>
+                                </select>
+                              @error('stock')<span class="text-danger">{{ $message }}</span>@enderror
                            </div>
                            <div class="col-md-6">
                               <label class="form-label">Weight</label>

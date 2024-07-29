@@ -3,25 +3,24 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-      <title>About Us | Sithas foods - Sweet, Mixture, Fried, Chips</title>
+      <title>Sithas foods - Sweet, Mixture, Fried, Chips</title>
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <link rel="shortcut icon" href="{{ asset('user_asset/images/vegetable/veg-logo.png')}}" type="image/x-icon">
-
      @yield('link')
    </head>
    <body>
-   @if(session('success'))
-    <div id="successMessage" class="alert alert-success mt-2">
-       {{ session('success') }}
-    </div>
-    @endif
-    @if(session('error'))
-    <div id="errorMessage" class="alert alert-danger mt-2">
-       {{ session('error') }}
-    </div>
-    @endif
+ 
       <div class="about_us_main--wrapper">
+      @if(session('success'))
+      <div id="successMessage" class="alert alert-success mt-2">
+         {{ session('success') }}
+      </div>
+      @endif
+      @if(session('error'))
+      <div id="errorMessage" class="alert alert-danger mt-2">
+         {{ session('error') }}
+      </div>
+      @endif
          <header class="default_header">
             <nav class="navbar navbar_default navbar-expand-lg">
                <a class="navbar-brand navbrand_mobile" href="{{ route('index')}}">
@@ -54,7 +53,8 @@
                         </ul>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Products',['id'=>'All'])}}">Shop</a>                     </li>
+                        <a class="nav-link" href="{{ route('Products',['id'=>'All'])}}">Shop</a>           
+                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact')}}">Contact</a>
                      </li>
@@ -80,28 +80,33 @@
                                      <button class="nav-link" ><img src="{{ asset('user_asset/images/svg/log.png')}}"> Logout</button>
                                     </form>
                                  </li>
+                                 @guest
                                  <li><a class="nav-link" href="{{ route('register')}}"><img src="{{ asset('user_asset/images/svg/register.png')}}"> Register</a></li>
+                                 @endguest
                                  <li><a class="nav-link" href="{{ route('Profile')}}"><img src="{{ asset('user_asset/images/svg/profile.png')}}"> Profile</a></li>
                                  <li><a class="nav-link" href="{{ route('Order')}}"><img src="{{ asset('user_asset/images/svg/12121.png')}}"> My Order</a></li>
                               @endauth
                               </ul>
                            </li>
-                           <li class="nav-item ">
+                           <!-- <li class="nav-item ">
                               <a href="javascript:void(0)" data-toggle="modal" data-target="#aboutSearchModal">
                               <img data-src="{{ asset('user_asset/images/svg/search.svg')}}" alt="search" class="lazyload" width="20" height="20">
                               </a>
-                           </li>
+                           </li> -->
+                           @auth
                            <li class="nav-item ">
-                              <a href="{{ route('wishlist',['pro_id'=>'empty'])}}">
+                              <a href="{{ route('wishlist',['pro_id'=>'empty'])}}"  class="cart_link"> 
                               <img data-src="{{ asset('user_asset/images/svg/like.svg')}}" alt="like" class="lazyload" width="20" height="20">
+                              <span class="cart_count"><b>{{ App\models\WhishlistModel::where('user_id',Auth::user()->user_id)->count() }}</b></span>
                               </a>
                            </li>
                            <li class="nav-item ">
                               <a href="{{ route('Cart')}}" class="cart_link">
                               <img data-src="{{ asset('user_asset/images/svg/cart.svg')}}" alt="cart" class="lazyload" width="20" height="20">
-                              <span class="cart_count"><b>00</b></span>
+                              <span class="cart_count"><b>{{ App\models\CartModel::where('user_id',Auth::user()->user_id)->where('status','New')->count() }}</b></span>
                               </a>
                            </li>
+                           @endauth
                         </ul>
                      </div>
                   </div>
@@ -139,7 +144,6 @@
                         <h2 class="foo_title">Shop</h2>
                         <ul class="list_item--wrapper">
                            <li class="list_items"><a href="{{ route('Cart')}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  Cart</a></li>
-                           <li class="list_items"><a href="{{ route('Checkout')}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  Checkout</a></li>
                            <li class="list_items"><a href="{{ route('register')}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  My Account</a></li>
                            <li class="list_items"><a href="{{ route('wishlist',['pro_id'=>'empty'])}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  Wishlist</a></li>
                            <li class="list_items"><a href="{{ route('payment')}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  Payment</a></li>
@@ -184,7 +188,7 @@
                   </div>
                </div>
                <div class="col-md-12 text-center">
-                  <span class="copyright">© 2024 All right Designed By <a target="_blank" href="https://www.softemart.com/">Softmart Technolab</a></span>
+                  <span class="copyright">© 2024 All right Designed By <a target="_blank" href="https://relaxplzz.com/">Relaxplzz Technologies</a></span>
                </div>
             </div>
          </footer>

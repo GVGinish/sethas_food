@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="csrf-token" content="{{ csrf_token() }}">
+      <link rel="shortcut icon" href="{{asset('user_asset/images/vegetable/veg-logo.png')}}">
       <title>Sithas foods - Sweet, Mixture, Fried, Chips</title>
       @yield('link')
 
@@ -57,7 +58,7 @@
                         <h2 class="footer_list--title">Shop</h2>
                         <ul class="veg_footer_list--wrapper">
                            <li class="veg_items"><a href="{{ route('Cart')}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  Cart</a></li>
-                           <li class="veg_items"><a href="{{ route('Checkout')}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  Checkout</a></li>
+                           <li class="veg_items"><a href="{{ route('Checkout',['cart_id'=>'null'])}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  Checkout</a></li>
                            <li class="veg_items"><a href="{{ route('register')}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  My Account</a></li>
                            <li class="veg_items"><a href="{{ route('wishlist')}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  Wishlist</a></li>
                            <li class="veg_items"><a href="{{ route('payment')}}"><img style="margin-right: 5px;" data-src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}" alt="arrow-right" class=" ls-is-cached lazyloaded" width="12" height="10"  src="{{ asset('user_asset/images/svg/veg-arrow-right.svg')}}">  Payment</a></li>
@@ -107,7 +108,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-12">
-                     <span class="copyright">© 2024 All right Designed By <a target="_blank" href="https://www.softemart.com/">Softmart Technolab</a></span>
+                     <span class="copyright">© 2024 All right Designed By <a target="_blank" href="https://relaxplzz.com/">Relaxplzz Technologies</a></span>
                   </div>
                </div>
             </div>

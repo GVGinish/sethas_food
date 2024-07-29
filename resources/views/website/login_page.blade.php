@@ -36,15 +36,20 @@
                   <div style="justify-content: center" class="row login-mob">
                      <div class="col-lg-12 account_cols">
                         <div class="account_details--wrapper">
+                        @if (session('message'))
+                           <div class="alert alert-success">
+                              {{ session('message') }}
+                           </div>
+                        @endif
                            <h1 class="title">Login</h1>
                            <form class="my_account--form" method="POST" action="{{ route('website_signin')}}">
                            @csrf   
                            <div class="form_account--group">
-                                 <input type="text" class="form_input" name="email" value="gin@relaxplzz.com" placeholder="email address">
+                                 <input type="text" class="form_input" name="email" value="{{old('email')}}" placeholder="email address">
                                  @error('email')<div class="text-danger">{{$message}}</div> @enderror
                               </div>
                               <div class="form_account--group">
-                                 <input type="password" class="form_input" name="password" value="123456" placeholder="Password">
+                                 <input type="password" class="form_input" name="password" value="{{old('password')}}" placeholder="Password">
                                  @error('password')<div class="text-danger">{{$message}}</div> @enderror
                               </div>
                               <div class="account_btn--wrapper">
@@ -52,7 +57,7 @@
                               </div>
                               <div class="form_security--group">
                                  
-                                 <a href="./Forget.html" class="forgot_password">Forgot Password</a>
+                                 <a href="{{route('Forget')}}" class="forgot_password">Forgot Password</a>
                               </div>
                               <span class="register_now">Don’t have an account? <a href="{{ route('register') }}" class="register">Register Now</a></span>
                            </form>

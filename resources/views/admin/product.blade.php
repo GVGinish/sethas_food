@@ -1,11 +1,6 @@
 
-
-
-
 @extends('admin.layout')
-
 @section('link')
-<link rel="shortcut icon" href="{{ asset('admin_asset/images/favicon.ico') }}">
 <!-- Layout config Js -->
 <script src="{{ asset('admin_asset/js/layout.js') }}"></script>
 <!-- Bootstrap Css -->
@@ -113,9 +108,13 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label">Quantity</label>
-                                <input type="text" class="form-control" name="quantity" value="{{ old('quantity') }}">
-                                @error('quantity')<span class="text-danger">{{ $message }}</span>@enderror
+                                <label class="form-label">Stock</label>
+                                <select class="form-control" name="stock">
+                                    <option selected disabled>select stock</option>
+                                    <option value="Instock" {{ (old('stock') == 'Instock') ? 'selected' : '' }}>Instock</option>
+                                    <option value="Out of stock" {{ (old('stock') == 'Out of stock') ? 'selected' : '' }}>Out of stock</option>
+                                </select>
+                                @error('stock')<span class="text-danger">{{ $message }}</span>@enderror
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Weight</label>
@@ -156,7 +155,6 @@
                                 <textarea id="description" style="display:none;" name="description">{{ old('description') }}</textarea>
                             </div>
                             @error('description')<span class="text-danger">{{ $message }}</span>@enderror
-
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit">Submit form</button>
                             </div>
@@ -291,6 +289,3 @@
 
 
 @endsection
-</body>
-</html>
-

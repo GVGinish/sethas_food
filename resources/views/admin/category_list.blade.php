@@ -1,6 +1,5 @@
 @extends('admin.layout')
 @section('link')
-<link rel="shortcut icon" href="{{ asset('admin_asset/images/favicon.ico')}}">
 
 <!-- Sweet Alert css-->
 <link href="{{ asset('admin_asset/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
@@ -60,9 +59,9 @@
                             <table class="table align-middle table-nowrap " id="customerTable">
                                 <thead class="table-light">
                                     <tr>
-                                        <th class="sort" data-sort="1">Sl.no</th>
-                                        <th class="sort" data-sort="2">Category</th>
-                                        <th class="sort" data-sort="">Action</th>
+                                        <th class="text-center sort" data-sort="1">Sl.no</th>
+                                        <th class="text-center sort" data-sort="2">Category</th>
+                                        <th class="text-center sort" data-sort="">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list form-check-all">
@@ -71,15 +70,15 @@
                                     @endphp
                                     @foreach ($all_data as $all)
                                     <tr>
-                                        <td class="1">{{ $c++ }}</td>
-                                        <td class="2">{{ $all->category }}</td>
-                                        <td>
-                                            <div class="d-flex gap-2">
+                                        <td class="text-center 1">{{ $c++ }}</td>
+                                        <td class="text-center 2">{{ $all->category }}</td>
+                                        <td class="text-center">
+                                            <div class="d-flex justify-content-center gap-2">
                                                 <div class="edit">
-                                                    <button class="btn btn-sm btn-success edit-item-btn edit_info" data-bs-toggle="modal" data-bs-target="#showModal" data-id="{{ $all->id }}" data-category="{{ $all->category }}">Edit</button>
+                                                    <button class="btn btn-sm btn-success edit-item-btn edit_info" data-bs-toggle="modal" data-bs-target="#showModal" data-id="{{ $all->id }}" data-category="{{ $all->category }}"><i class="ri-pencil-fill fs-16"></i></button>
                                                 </div>
                                                 <div class="remove">
-                                                    <button class="btn btn-sm btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal" data-id="{{ $all->id }}">Remove</button>
+                                                    <button class="btn btn-sm btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal" data-id="{{ $all->id }}"><i class="ri-delete-bin-5-fill fs-16"></i></button>
                                                 </div>
                                             </div>
                                         </td>
@@ -91,7 +90,7 @@
                                 <div class="text-center">
                                     <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
                                     <h5 class="mt-2">Sorry! No Result Found</h5>
-                                    <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
+                                    <p class="text-muted mb-0">We've searched more than {{App\Models\CategoryModel::count()}} category We did not find any category for you search.</p>
                                 </div>
                             </div>
                         </div>

@@ -39,7 +39,7 @@
                               @csrf
                               <button type="submit" class="wishlist_btn">CLEAR WISHLIST</button>
                            </form>                          
-                            <a href="#" class="wishlist_btn">UPDATE WISHLIST</a>
+                           
                         </div>
                      </div>
                   </div>
@@ -58,13 +58,15 @@
                               <span class="wishlist_price"><span class="main_price">₹ {{$pro_detail->mrp}}</span>  ₹ {{$pro_detail->retail}}</span>
                            </li>
                            <li class="instock_wrapper">
-                           @php $stock = ($pro_detail->quantity >= 1) ? "Instock" : "Outstock" ;
-                                $color = ($pro_detail->quantity >= 1) ? "green" : "red" ;
+                           @php 
+                                $color = ($pro_detail->stock == "Instock") ? "green" : "red" ;
+                                $btnn = ($pro_detail->stock == "Instock") ? "" : "none" ;
+
                            @endphp
-                              <span class="instock" style="color:{{$color}};">{{ $stock }}</span>
+                              <span class="instock" style="color:{{$color}};">{{ $pro_detail->stock }}</span>
                            </li>
                            <li class="add_to_cart--wrapper">
-                              <a class="buy_now--btn" href="#" onclick="document.getElementById('Cart_form_{{ $pro_detail->product_id }}').submit(); return false;">
+                              <a style="pointer-events: {{$btnn}};" class="buy_now--btn inactive" href="#" onclick="document.getElementById('Cart_form_{{ $pro_detail->product_id }}').submit(); return false;">
                                  ADD TO CART
                               </a>
                               <form id="Cart_form_{{ $pro_detail->product_id }}" method="POST" action="{{ route('add_to_cart') }}" style="display:none;">

@@ -14,8 +14,9 @@ class ProductController extends Controller
 {
     public function product(){
 
-        $data['category'] = CategoryModel::get();
-        return view('admin.product',$data);
+        $page="product";
+        $category = CategoryModel::get();
+        return view('admin.product',compact('category','page'));
     }
 
     public function add_product(Request $request)
@@ -27,7 +28,7 @@ class ProductController extends Controller
             'retail' => 'required|numeric',
             'description' => 'required',
             'weight' => 'required',
-            'quantity' => 'required|numeric',
+            'stock' => 'required',
         ]);
 
         $pro = new ProductModel();
@@ -68,10 +69,16 @@ class ProductController extends Controller
             $pro->retail = $request->input('retail');
             $pro->weight = $request->input('weight');
             $pro->description = $request->input('description');
-            $pro->quantity = $request->input('quantity');
+            $pro->stock = $request->input('stock');
             $pro->image = $primaryImageName;
 
             $pro->save();
+
+            $primary = new ImageModel();
+            $primary->images = $primaryImageName;
+            $primary->product_id = $pro_id;
+            $primary->save();
+
 
             foreach ($imagePaths as $imagePath) {
                 $img = new ImageModel();
@@ -79,6 +86,10 @@ class ProductController extends Controller
                 $img->images = $imagePath;
                 $img->save();
             }
+
+           
+
+
 
             $request->session()->flash('success', 'Product added successfully');
             return redirect()->route('product_list');
@@ -91,11 +102,11 @@ class ProductController extends Controller
 
     public function product_list()
     {
-        $data['all_data'] = ProductModel::orderBy('id', 'DESC')
+        $all_data = ProductModel::orderBy('id', 'DESC')
             ->with('category')
             ->get();
-
-        return view('admin.product_list', $data);
+        $page="product_list";
+        return view('admin.product_list', compact('all_data','page'));
     }
 
     public function delete_product(Request $request)
@@ -152,14 +163,25 @@ class ProductController extends Controller
 
 
 
+        public function view_product($id)
+        {
+            $edit = ProductModel::with('category')->findOrFail($id);
+            
+            $category = CategoryModel::where('category_id', $edit->category_id)->value('category'); // Corrected the column name
+            $page="view_product";
+            return view('admin.view_product', compact('edit', 'category','page'));
+        }
+        
+
         public function edit_product($id)
         {
-            $data['edit'] = ProductModel::with('category')->findOrFail($id);
-
-            $data['category'] = CategoryModel::orderBy('id', 'DESC')->get();
-
-            return view('admin.edit_product', $data);
+            $edit = ProductModel::with('category')->findOrFail($id);
+            $category = CategoryModel::orderBy('id', 'DESC')->get();
+            $page="view_product";
+            return view('admin.edit_product', compact('edit','category','page'));
         }
+
+        
 
         public function change_product(Request $request)
 {
@@ -170,7 +192,7 @@ class ProductController extends Controller
         'retail' => 'required|numeric',
         'weight' => 'required',
         'description' => 'required',
-        'quantity' => 'required|numeric',
+        'stock' => 'required',
     ]);
 
     DB::beginTransaction();
@@ -204,7 +226,7 @@ class ProductController extends Controller
         $pro->weight = $request->input('weight');
         $pro->retail = $request->input('retail');
         $pro->description = $request->input('description');
-        $pro->quantity = $request->input('quantity');
+        $pro->stock = $request->input('stock');
         $pro->image = $editimageName;
 
         $pro->save();

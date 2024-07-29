@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
       <meta content="Themesbrand" name="author" />
-      <link rel="shortcut icon" href="{{ asset('user_asset/images/favicon.png')}}">
+      <link rel="shortcut icon" href="{{asset('user_asset/images/vegetable/veg-logo.png')}}">
       <link rel="stylesheet" href="{{ asset('admin_asset/libs/nouislider/nouislider.min.css') }}">
       <link rel="stylesheet" href="{{ asset('admin_asset/libs/gridjs/theme/mermaid.min.css') }}">
       <link href="{{ asset('admin_asset/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />

@@ -10,13 +10,16 @@ class CategoryController extends Controller
 
     public function category(){
 
-        return view('admin.category');
+        $page="category";
+        return view('admin.category',compact('page'));
     }
 
     public function category_list(){
 
-        $data['all_data'] = CategoryModel::orderby('id', 'DESC')->get();
-        return view('admin.category_list',$data);
+
+        $page = "category_list";
+        $all_data = CategoryModel::orderby('id', 'DESC')->get();
+        return view('admin.category_list',compact('all_data','page'));
     }
 
 

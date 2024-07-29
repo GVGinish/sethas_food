@@ -9,7 +9,7 @@ class AdminModel extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'admin_models'; // Specify the table name
+    protected $table = 'admin_models'; 
 
     protected $fillable = [
 

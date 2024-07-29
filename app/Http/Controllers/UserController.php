@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -26,16 +28,27 @@ class UserController extends Controller
             $check = User::where('user_id', $user_id)->count();
         } while ($check > 0);
 
-        
+        $email=$request->input('email');
     
         $add = new User;
         $add->user_id = $user_id;
         $add->username = $request->input('username');
-        $add->email = $request->input('email');
+        $add->email = $email;
         $add->phone = $request->input('phone');
         $add->password = Hash::make($request->input('password'));
     
         $add->save();
+
+        $email_data = [
+            'username' => $request->input('username'),
+            'email' => $email,
+            'phone' => $request->input('phone'),
+            'password' => $request->input('password'),
+            'email_type' => 'registration', 
+        ];
+                
+        
+        Mail::to($email)->send(new WelcomeMail($email_data));
     
         return redirect()->route('website_login_page');
     }

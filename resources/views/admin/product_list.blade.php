@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('link')
-<link rel="shortcut icon" href="{{ asset('admin_asset/images/favicon.ico')}}">
+
 <!-- Sweet Alert css-->
 <link href="{{ asset('admin_asset/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 <!-- Layout config Js -->
@@ -51,16 +51,15 @@
                            <table class="table align-middle table-nowrap " id="customerTable">
                               <thead class="table-light">
                                  <tr>
-                                    <th class="sort" data-sort="1">Sl.no</th>
-                                    <th class="sort" data-sort="2">Category</th>
-                                    <th class="sort" data-sort="3">Product Name</th>
-                                    <th class="sort" data-sort="4">MRP</th>
-                                    <th class="sort" data-sort="5">Retail</th>
-                                    <th class="sort" data-sort="6">Weight</th>
-                                    <th class="sort" data-sort="7">Quantity</th>
-                                    <th class="sort" data-sort="8">Image</th>
-                                    <th class="sort" data-sort="9">Description</th>
-                                    <th class="sort" data-sort="">Action</th>
+                                    <th class="sort text-center" data-sort="1">Sl.no</th>
+                                    <th class="sort text-center" data-sort="2">Category</th>
+                                    <th class="sort text-center" data-sort="3">Product Name</th>
+                                    <th class="sort text-center" data-sort="4">MRP</th>
+                                    <th class="sort text-center" data-sort="5">Retail</th>
+                                    <th class="sort text-center" data-sort="6">Weight</th>
+                                    <th class="sort text-center" data-sort="7">Stock</th>
+                                    <th class="sort text-center" data-sort="8">Image</th>
+                                    <th class="sort text-center" >Action</th>
                                  </tr>
                               </thead>
                               <tbody class="list form-check-all">
@@ -69,32 +68,28 @@
                                  @endphp
                                  @foreach ($all_data as $all)
                                  <tr>
-                                    <td class="1">{{ $c++ }}</td>
-                                    <td class="2">{{ $all->category->category }}</td>
-                                    <td class="3">{{ $all->product_name }}</td>
-                                    <td class="4">{{ $all->mrp }}</td>
-                                    <td class="5">{{ $all->retail }}</td>
-                                    <td class="6">{{ $all->weight }}</td>
-                                    <td class="7">{{ $all->quantity }}</td>
-                                    <td class="8">
+                                    <td class="1 text-center">{{ $c++ }}</td>
+                                    <td class="2 text-center">{{ $all->category->category }}</td>
+                                    <td class="3 text-center">{{ $all->product_name }}</td>
+                                    <td class="4 text-center">{{ $all->mrp }}</td>
+                                    <td class="5 text-center">{{ $all->retail }}</td>
+                                    <td class="6 text-center">{{ $all->weight }}</td>
+                                    <td class="7 text-center">
+                                       <span class="badge rounded-pill bg-{{($all->stock == 'Instock') ? 'success' : 'danger'}} p-2"> {{ $all->stock }}</span>
+                                    </td>
+                                    <td class="8 text-center">
                                        <img class="" src="{{ $all->image }}" width="50px" height="50px">
                                     </td>
-                                    <td>
-                                       <div class="edit">
-                                       <button type="button" class="btn btn-info view-description-btn"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#descriptionModal"
-                                          data-description="<?= htmlspecialchars($all['description']) ?>">View Description
-                                       </button>                                    
+                                    <td class="text-center">
+                                       <div class="d-flex justify-content-center gap-2">
+                                       <div class="view">
+                                          <a href="{{ route('view_product', ['id' => $all->id]) }}"><i class="ri-eye-fill fs-16"></i></a>                                  
                                        </div>
-                                    </td>
-                                    <td>
-                                       <div class="d-flex gap-2">
                                           <div class="edit">
-                                             <a href="{{ route('edit_product', ['id' => $all->id]) }}" class="btn btn-sm btn-success edit-item-btn edit_info">Edit</a>
+                                             <a href="{{ route('edit_product', ['id' => $all->id]) }}"><i class="ri-pencil-fill fs-16"></i></a>
                                           </div>
                                           <div class="remove">
-                                             <button class="btn btn-sm btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal" data-id="{{ $all->id }}" data-product_id="{{ $all->product_id }}">Remove</button>
+                                             <a class="text-danger delete-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal" data-id="{{ $all->id }}" data-product_id="{{ $all->product_id }}"><i class="ri-delete-bin-5-fill fs-16"></i></a>
                                           </div>
                                        </div>
                                     </td>
@@ -154,38 +149,7 @@
             </div>
             <!-- end col -->
          </div>
-         <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-               <div class="modal-content">
-                  <div class="modal-header bg-light p-3">
-                     <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                  </div>
-                  <form class="tablelist-form" method="post" action="{{ route('change_category') }}">
-                     @csrf
-                     <div class="modal-body">
-                        <div class="mb-3" id="modal-id" style="display:none;">
-                           <label for="id-field" class="form-label">ID</label>
-                           <input type="text" id="id" name="id" class="form-control" readonly />
-                        </div>
-                        <div class="mb-3">
-                           <label for="category-field" class="form-label">Category Name</label>
-                           <input type="text" id="category" name="category" class="form-control" placeholder="Category Name"  />
-                           @error('category')
-                           <div class="text-danger">{{ $message }}</div>
-                           @enderror
-                        </div>
-                     </div>
-                     <div class="modal-footer">
-                        <div class="hstack gap-2 justify-content-end">
-                           <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                           <button type="submit" class="btn btn-success" id="add-btn">Change</button>
-                        </div>
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
+        
          <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                <div class="modal-content">
@@ -245,13 +209,12 @@
        });
    });
 </script>
-<script>
+<!-- <script>
     $(document).ready(function() {
-        // Event listener for the view description button
         $('.view-description-btn').on('click', function() {
             var description = $(this).data('description');
-            $('#modal-description-content').html(description); // Use .html() to set HTML content
+            $('#modal-description-content').html(description); 
         });
     });
-</script>
+</script> -->
 @endsection

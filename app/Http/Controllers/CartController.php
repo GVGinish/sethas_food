@@ -9,6 +9,7 @@ use App\Models\WhishlistModel;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+ use App\Http\Controllers\CartController;
 
 
 class CartController extends Controller
@@ -55,12 +56,12 @@ class CartController extends Controller
     // }
 
     public function add_to_cart(Request $request) {
+
         $userId = Auth::user()->user_id;
         $productId = $request->input('product_id');
         $from = $request->input('from');
     
-        // Check if the product already exists in the cart
-        $isInCart = CartModel::where('user_id', $userId)->where('product_id', $productId)->exists();
+        $isInCart = CartModel::where('user_id', $userId)->where('product_id', $productId)->where('status','New')->exists();
     
         if ($isInCart) {
             if ($from == "wishlist") {
@@ -70,40 +71,48 @@ class CartController extends Controller
             return redirect()->route('Cart');
         }
     
-        // Fetch the product details
-        $product = ProductModel::find($productId);
+        $product = ProductModel::where('product_id',$productId)->first();
         if (!$product) {
-            // Handle product not found case
             $request->session()->flash('error', 'Product not found');
             return redirect()->route('Cart');
         }
     
-        // Remove from wishlist if applicable
         if ($from == "wishlist") {
             $this->removeFromWishlist($userId, $productId);
         }
+
+        do {
+            $cart_id = "CARTID" . rand(10000, 99999);
+            $check = CartModel::where('cart_id', $cart_id)->count();
+        } while ($check > 0);
+
+        $newcart = CartModel::where('user_id', $userId)->where('status','New')->first();
     
-        // Add product to cart
-        DB::transaction(function () use ($userId, $product) {
+        $quantTotal = $product->retail * $request->input('quantity') ;
+        
             $cart = new CartModel();
+            $cart->billing_id = "";
             $cart->user_id = $userId;
             $cart->product_id = $product->product_id;
+            $cart->cart_id = ((empty($newcart)) ? $cart_id : $newcart->cart_id );
             $cart->product_name = $product->product_name;
             $cart->mrp = $product->mrp;
             $cart->retail = $product->retail;
-            $cart->total_price = $product->retail;
+            $cart->total_price = (!empty($request->input('quantity')) ? $quantTotal : $product->retail)  ;
+            $cart->weight = $product->weight;
             $cart->image = $product->image;
-            $cart->quantity = 1;
+            $cart->quantity = (!empty($request->input('quantity')) ? $request->input('quantity') : 1);
             $cart->save();
-        });
+      
     
         return redirect()->route('Cart');
     }
-    
+
     private function removeFromWishlist($userId, $productId) {
         WhishlistModel::where('user_id', $userId)->where('product_id', $productId)->delete();
     }
     
+
 
     public function Cart()
     {
@@ -155,7 +164,7 @@ public function updateQuantity(Request $request)
         return response()->json(['status' => 'minus_value']);
     }
 
-    if ($newQuantity > $product->quantity) {
+    if ($product->stock !== "Instock") {
         return response()->json(['status' => 'noquantity']);
     }
 
@@ -164,7 +173,7 @@ public function updateQuantity(Request $request)
     $cartItem->total_price = $update_value;
     $cartItem->save();
 
-$cart_total = CartModel::select('total_price')
+    $cart_total = CartModel::select('total_price')
     ->where('user_id', Auth::user()->user_id)
     ->where('status', 'New')
     ->sum('total_price');
